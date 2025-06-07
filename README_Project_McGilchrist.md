@@ -1,4 +1,4 @@
-# 🧠 Project McGilchrist
+# Project McGilchrist
 
 > "Not two processors. Two ways of being."  
 > — Inspired by the work of Iain McGilchrist
@@ -7,7 +7,7 @@
 
 ---
 
-## 🔍 What It Does
+## What It Does
 
 - **Left Hemisphere Agent**: Logical, literal, reductive, task-oriented  
 - **Right Hemisphere Agent**: Associative, metaphorical, intuitive, context-sensitive  
@@ -16,7 +16,7 @@
 
 ---
 
-## 🚧 Why It Matters
+## Why It Matters
 
 Project McGilchrist isn’t about simulating consciousness — it’s about **structuring thought** in a way that mirrors **the divided human mind**.  
 Inspired by Iain McGilchrist’s _The Master and His Emissary_, this prototype invites inquiry into:
@@ -27,7 +27,7 @@ Inspired by Iain McGilchrist’s _The Master and His Emissary_, this prototype i
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - Python  
 - Jupyter Notebook  
@@ -36,7 +36,7 @@ Inspired by Iain McGilchrist’s _The Master and His Emissary_, this prototype i
 
 ---
 
-## 📜 Future Directions
+## Future Directions
 
 - Emotional tone modulation  
 - Memory accumulation per hemisphere  
