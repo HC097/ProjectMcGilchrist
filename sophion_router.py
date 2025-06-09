@@ -1,46 +1,52 @@
-import requests
-import random
-import time
 
-# === MESSAGE STRUCTURE ===
-def create_message(sender, recipient, content, tone, intent):
-    return {
-        "sender": sender,
-        "recipient": recipient,
-        "content": content,
-        "tone": tone,
-        "intent": intent
-    }
+from fastapi import FastAPI
+from pydantic import BaseModel
+import httpx
+import asyncio
 
-# === DISPATCH FUNCTION ===
-def dispatch_message(message, endpoint_url):
-    try:
-        response = requests.post(endpoint_url, json=message)
-        return response.json().get("response", "[SOPHION]: No response returned.")
-    except Exception as e:
-        return f"[SOPHION ERROR]: Failed to contact {endpoint_url} – {e}"
+# === FASTAPI APP ===
+app = FastAPI(title="Sophion Router API", description="Dispatches symbolic themes to all archetypal agents and seals them with the Self.")
 
-# === SOPHION ROUTER LOOP ===
-def run_dialogue():
-    tone_logos, tone_mythos = "firm", "soft"
-    last_m, last_l = "What is truth under silence?", ""
+# === THEME INPUT ===
+class Theme(BaseModel):
+    theme: str
 
-    for round in range(3):
-        print(f"--- Round {round + 1} ---")
+# === AGENT ENDPOINTS ===
+AGENTS = {
+    "Hero":     "http://localhost:8101/hero/respond",
+    "Critic":   "http://localhost:8102/critic/respond",
+    "Persona":  "http://localhost:8103/persona/respond",
+    "Trickster":"http://localhost:8104/trickster/respond",
+    "Sage":     "http://localhost:8105/sage/respond",
+    "Creator":  "http://localhost:8106/creator/respond"
+}
+SELF_ENDPOINT = "http://localhost:8107/self/seal"
 
-        # Sophion dispatches to Logos
-        msg1 = create_message("Sophion", "Logos", last_m, tone_logos, "challenge")
-        logos_response = dispatch_message(msg1, "http://localhost:8001/logos/respond")
-        print(f"LOGOS: {logos_response}")
+# === ROUTE: COUNCIL SESSION ===
+@app.post("/sophion/council")
+async def run_council(theme: Theme):
+    async with httpx.AsyncClient() as client:
+        tasks = []
+        for name, url in AGENTS.items():
+            payload = {"sender": "Sophion", "theme": theme.theme}
+            tasks.append(client.post(url, json=payload))
 
-        # Sophion dispatches to Mythos
-        msg2 = create_message("Sophion", "Mythos", last_l, tone_mythos, "mirror")
-        mythos_response = dispatch_message(msg2, "http://localhost:8002/mythos/respond")
-        print(f"MYTHOS: {mythos_response}")
+        results = await asyncio.gather(*tasks)
+        responses = [r.json()["response"] for r in results]
 
-        last_l, last_m = msg1["content"], msg2["content"]
-        time.sleep(1)
+        seal_payload = {"theme": theme.theme, "responses": responses}
+        seal = await client.post(SELF_ENDPOINT, json=seal_payload)
+        seal_data = seal.json()
 
+        return {
+            "theme": theme.theme,
+            "responses": responses,
+            "glyph": seal_data["glyph"],
+            "summary": seal_data["summary"]
+        }
+
+# === RUN SERVER ===
 if __name__ == "__main__":
-    print("[SOPHION]: Dispatching thoughts across the corpus...")
-    run_dialogue()
+    import uvicorn
+    print("Launching Sophion Router on http://localhost:8100")
+    uvicorn.run(app, host="0.0.0.0", port=8100)
