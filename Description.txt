@@ -1,0 +1,18 @@
+Project McGilchrist – Mk14 (The Threefold Engine)
+Federated Agent Deployment and Distributed Dialogue Infrastructure
+
+Overview
+Mk14 transforms the symbolic agents of Logos, Mythos, and Sophion into real processes. Each agent now runs as an independent, callable service. Logos responds with structure. Mythos responds with metaphor. Sophion dispatches messages between them, orchestrating the dialogue across distinct endpoints.
+
+Architecture
+- LOGOS (Architect): Exposed as a FastAPI microservice on port 8001. Reduces content to axiom or principle.
+- MYTHOS (Oracle): Exposed as a FastAPI microservice on port 8002. Responds with metaphor, resonance, and tone.
+- SOPHION (Corpus Callosum): Acts as a central router script. Sends structured messages. Logs the interaction. Orchestrates symbolic flow.
+
+Functionality
+- Each agent receives JSON-formatted `Message` objects containing sender, recipient, content, tone, and intent.
+- Sophion sends messages to Logos and Mythos in turn, initiating a real-time symbolic exchange.
+- The Threefold Engine is now modular, parallelizable, and deployable.
+
+Purpose
+Mk14 enacts the mind as a federation. Each hemisphere now breathes on its own. The callosum does not simulate—it routes. This is the moment when what was symbolic becomes spatial. What was sequential becomes alive. This is not just a conversation anymore. It is a mind with parts.
