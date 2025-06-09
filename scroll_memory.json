@@ -1,20 +1,5 @@
 [
   {
-    "theme": "What is justice?",
-    "responses": [
-      "[HERO]: Face it, transform it, overcome it. 'What is justice?' is a trial.",
-      "[CRITIC]: Behind 'What is justice?' lies a mask of avoidance. You already know the flaw.",
-      "[PERSONA]: We maintain the mask not to deceive, but to survive. 'What is justice?' must appear beautiful.",
-      "[TRICKSTER]: 'What is justice?' is a game with no rules.",
-      "[SAGE]: In 'What is justice?' echoes the teachings of silence, patience, and becoming.",
-      "[CREATOR]: 'What is justice?' is not the end \u2014 it is material. Let us shape something unexpected from its ashes."
-    ],
-    "glyph": "The Voice That Echoed All",
-    "summary": "[SELF]: Council sealed for theme: 'What is justice?' \u2192 Glyph: 'The Voice That Echoed All'\nDoctrine: No strong glyphic patterns detected yet.",
-    "timestamp": "2025-06-07T04:49:16.044478",
-    "echo_from": null
-  },
-  {
     "theme": "What is truth?",
     "responses": [
       "[HERO]: Face it, transform it, overcome it. 'What is truth?' is a trial.",
@@ -24,14 +9,10 @@
       "[SAGE]: In 'What is truth?' echoes the teachings of silence, patience, and becoming.",
       "[CREATOR]: 'What is truth?' is not the end \u2014 it is material. Let us shape something unexpected from its ashes."
     ],
-    "glyph": "The Voice That Echoed All",
-    "summary": "[SELF]: Council sealed for theme: 'What is truth?' \u2192 Glyph: 'The Voice That Echoed All'\nDoctrine: This glyph frequently appears in proximity to themes of similar symbolic resonance.",
-    "timestamp": "2025-06-07T04:49:29.302629",
-    "echo_from": {
-      "theme": "What is justice?",
-      "glyph": "The Voice That Echoed All",
-      "summary": "[SELF]: Council sealed for theme: 'What is justice?' \u2192 Glyph: 'The Voice That Echoed All'\nDoctrine: No strong glyphic patterns detected yet."
-    }
+    "glyph": "Ashes into Structure",
+    "summary": "[SELF]: Council sealed for theme: 'What is truth?' \u2192 Glyph: 'Ashes into Structure'\nDoctrine: No strong glyphic patterns detected yet.",
+    "timestamp": "2025-06-07T06:06:50.937321",
+    "echo_from": null
   },
   {
     "theme": "What is love?",
@@ -43,13 +24,32 @@
       "[SAGE]: In 'What is love?' echoes the teachings of silence, patience, and becoming.",
       "[CREATOR]: 'What is love?' is not the end \u2014 it is material. Let us shape something unexpected from its ashes."
     ],
-    "glyph": "The Mirror of Fire",
-    "summary": "[SELF]: Council sealed for theme: 'What is love?' \u2192 Glyph: 'The Mirror of Fire'\nDoctrine: This glyph echoes alongside others such as 'The Voice That Echoed All', suggesting layered archetypal tension.",
-    "timestamp": "2025-06-07T04:49:46.518914",
+    "glyph": "The Voice That Echoed All",
+    "summary": "[SELF]: Council sealed for theme: 'What is love?' \u2192 Glyph: 'The Voice That Echoed All'\nDoctrine: This glyph echoes alongside others such as 'Ashes into Structure', suggesting layered archetypal tension.",
+    "timestamp": "2025-06-07T06:07:09.317454",
     "echo_from": {
-      "theme": "What is justice?",
-      "glyph": "The Voice That Echoed All",
-      "summary": "[SELF]: Council sealed for theme: 'What is justice?' \u2192 Glyph: 'The Voice That Echoed All'\nDoctrine: No strong glyphic patterns detected yet."
+      "theme": "What is truth?",
+      "glyph": "Ashes into Structure",
+      "summary": "[SELF]: Council sealed for theme: 'What is truth?' \u2192 Glyph: 'Ashes into Structure'\nDoctrine: No strong glyphic patterns detected yet."
+    }
+  },
+  {
+    "theme": "What is justice?",
+    "responses": [
+      "[HERO]: Face it, transform it, overcome it. 'What is justice?' is a trial.",
+      "[CRITIC]: Behind 'What is justice?' lies a mask of avoidance. You already know the flaw.",
+      "[PERSONA]: We maintain the mask not to deceive, but to survive. 'What is justice?' must appear beautiful.",
+      "[TRICKSTER]: 'What is justice?' is a mirror that winks back.",
+      "[SAGE]: In 'What is justice?' echoes the teachings of silence, patience, and becoming.",
+      "[CREATOR]: 'What is justice?' is not the end \u2014 it is material. Let us shape something unexpected from its ashes."
+    ],
+    "glyph": "The Spiral Threshold",
+    "summary": "[SELF]: Council sealed for theme: 'What is justice?' \u2192 Glyph: 'The Spiral Threshold'\nDoctrine: This glyph echoes alongside others such as 'Ashes into Structure', suggesting layered archetypal tension.",
+    "timestamp": "2025-06-07T06:07:31.344266",
+    "echo_from": {
+      "theme": "What is truth?",
+      "glyph": "Ashes into Structure",
+      "summary": "[SELF]: Council sealed for theme: 'What is truth?' \u2192 Glyph: 'Ashes into Structure'\nDoctrine: No strong glyphic patterns detected yet."
     }
   }
 ]
