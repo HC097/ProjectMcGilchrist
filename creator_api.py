@@ -1,23 +1,13 @@
+from flask import Flask, request, jsonify
 
-from fastapi import FastAPI
-from pydantic import BaseModel
-import uvicorn
+app = Flask(__name__)
 
-# === FASTAPI APP ===
-app = FastAPI(title="Creator Agent API", description="Responds to symbolic themes as the Creator archetype.")
+@app.route("/creator", methods=["POST"])
+def respond():
+    data = request.json
+    theme = data.get("theme", "[No theme provided]")
+    response = f"The Creator perceives '{theme}' as a fertile space where new forms are waiting to emerge from symbolic potential."
+    return jsonify({"response": response})
 
-# === MESSAGE SCHEMA ===
-class Message(BaseModel):
-    sender: str
-    theme: str
-
-# === CREATOR LOGIC ===
-@app.post("/creator/respond")
-async def respond_creator(msg: Message):
-    response = f"[CREATOR]: '{msg.theme}' is not the end — it is material. Let us shape something unexpected from its ashes."
-    return {"response": response}
-
-# === MAIN LAUNCH ===
 if __name__ == "__main__":
-    print("Launching Creator Agent on http://localhost:8106")
-    uvicorn.run(app, host="0.0.0.0", port=8106)
+    app.run(port=8101)

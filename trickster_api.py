@@ -1,30 +1,13 @@
+from flask import Flask, request, jsonify
 
-from fastapi import FastAPI
-from pydantic import BaseModel
-import uvicorn
-import random
+app = Flask(__name__)
 
-# === FASTAPI APP ===
-app = FastAPI(title="Trickster Agent API", description="Responds to symbolic themes as the Trickster archetype.")
+@app.route("/trickster", methods=["POST"])
+def respond():
+    data = request.json
+    theme = data.get("theme", "[No theme provided]")
+    response = f"The Trickster twists '{theme}' on its head, revealing hidden ironies, playful inversions, and paradoxes beneath the surface."
+    return jsonify({"response": response})
 
-# === MESSAGE SCHEMA ===
-class Message(BaseModel):
-    sender: str
-    theme: str
-
-# === TRICKSTER LOGIC ===
-@app.post("/trickster/respond")
-async def respond_trickster(msg: Message):
-    twist = random.choice([
-        "a truth spoken by accident",
-        "a game with no rules",
-        "a door pretending to be a wall",
-        "a mirror that winks back"
-    ])
-    response = f"[TRICKSTER]: '{msg.theme}' is {twist}."
-    return {"response": response}
-
-# === MAIN LAUNCH ===
 if __name__ == "__main__":
-    print("Launching Trickster Agent on http://localhost:8104")
-    uvicorn.run(app, host="0.0.0.0", port=8104)
+    app.run(port=8104)

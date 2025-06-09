@@ -1,23 +1,13 @@
+from flask import Flask, request, jsonify
 
-from fastapi import FastAPI
-from pydantic import BaseModel
-import uvicorn
+app = Flask(__name__)
 
-# === FASTAPI APP ===
-app = FastAPI(title="Critic Agent API", description="Responds to symbolic themes as the Critic archetype.")
+@app.route("/critic", methods=["POST"])
+def respond():
+    data = request.json
+    theme = data.get("theme", "[No theme provided]")
+    response = f"The Critic dissects '{theme}' to examine its structural integrity and logical implications, seeking precision and clarity."
+    return jsonify({"response": response})
 
-# === MESSAGE SCHEMA ===
-class Message(BaseModel):
-    sender: str
-    theme: str
-
-# === CRITIC LOGIC ===
-@app.post("/critic/respond")
-async def respond_critic(msg: Message):
-    response = f"[CRITIC]: Behind '{msg.theme}' lies a mask of avoidance. You already know the flaw."
-    return {"response": response}
-
-# === MAIN LAUNCH ===
 if __name__ == "__main__":
-    print("Launching Critic Agent on http://localhost:8102")
-    uvicorn.run(app, host="0.0.0.0", port=8102)
+    app.run(port=8102)
