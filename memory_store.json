@@ -1,0 +1,32 @@
+{
+  "Session_Mk16_Auto": {
+    "glyph": "The Thread of Recursive Drift",
+    "log": [
+      {
+        "Exchange": "Sophion\u2192Logos [firm/challenge]"
+      },
+      {
+        "Exchange": "Sophion\u2192Mythos [soft/mirror]"
+      },
+      {
+        "Exchange": "Sophion\u2192Logos [firm/challenge]"
+      },
+      {
+        "Exchange": "Sophion\u2192Mythos [soft/mirror]"
+      }
+    ],
+    "timestamp": "2025-06-07T02:53:54.965910"
+  },
+  "Session_Mk16_User": {
+    "glyph": "The Interrupted Mirror",
+    "log": [
+      {
+        "Exchange": "User\u2192Logos [neutral/challenge]"
+      },
+      {
+        "Exchange": "User\u2192Mythos [soft/mirror]"
+      }
+    ],
+    "timestamp": "2025-06-07T02:53:54.974285"
+  }
+}
