@@ -4,8 +4,7 @@ from tkinter import messagebox, scrolledtext
 import subprocess
 import requests
 import os
-import signal
-import sys
+from datetime import datetime
 
 services = [
     ("Hero", "hero_api.py"),
@@ -71,6 +70,22 @@ def send_theme():
     except Exception as e:
         messagebox.showerror("Connection Error", str(e))
 
+def view_scrolls():
+    try:
+        response = requests.get("http://localhost:8100/sophion/scrolls")
+        if response.status_code == 200:
+            scrolls = response.json()
+            output.delete("1.0", tk.END)
+            for s in scrolls:
+                output.insert(tk.END, f"[{s['timestamp']}]\n")
+                output.insert(tk.END, f"Theme: {s['theme']}\n")
+                output.insert(tk.END, f"Glyph: {s['glyph']}\n")
+                output.insert(tk.END, f"{s['summary']}\n\n")
+        else:
+            messagebox.showerror("Error", f"Server returned status {response.status_code}")
+    except Exception as e:
+        messagebox.showerror("Connection Error", str(e))
+
 root = tk.Tk()
 root.title("Sophion Control Panel")
 
@@ -79,6 +94,7 @@ top_frame.pack(pady=10)
 
 tk.Button(top_frame, text="Launch All Services", command=launch_all, bg="#d0ffd0").pack(side=tk.LEFT, padx=5)
 tk.Button(top_frame, text="Close All Services", command=close_all, bg="#ffd0d0").pack(side=tk.LEFT, padx=5)
+tk.Button(top_frame, text="Recall All Scrolls", command=view_scrolls, bg="#f0e0ff").pack(side=tk.LEFT, padx=5)
 
 input_frame = tk.Frame(root)
 input_frame.pack(pady=10)
@@ -90,7 +106,7 @@ entry.pack(pady=5)
 send_btn = tk.Button(input_frame, text="Send to Sophion", command=send_theme, bg="#d0e0ff")
 send_btn.pack(pady=5)
 
-output = scrolledtext.ScrolledText(root, width=90, height=20, wrap=tk.WORD)
+output = scrolledtext.ScrolledText(root, width=90, height=25, wrap=tk.WORD)
 output.pack(padx=10, pady=10)
 
 root.mainloop()
